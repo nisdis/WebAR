@@ -6,6 +6,8 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
 </head>
 
 <body>
@@ -14,7 +16,7 @@
         renderer="colorManagement: true, physicallyCorrectLights" mindar-image="filterMinCF:0.1; filterBeta: 10">
 
         <a-assets>
-            <a-asset-item id="avatarModel" src="/mosquito/scene.gltf">
+            <a-asset-item id="avatarModel" src="/mosquito/scene.gltf" animation-mixer>
             </a-asset-item>
             <a-asset-item id="avatarGandhi" src="/mahatma_gandhi/scene.gltf">
             </a-asset-item>
@@ -22,17 +24,20 @@
 
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-        <a-light type="ambient" color="#445451"></a-light>
+        <a-light type="ambient" color="#f3f3f3"></a-light>
         <a-light type="point" intensity="3" position="4 4 4"></a-light>
 
         <a-entity mindar-image-target="targetIndex: 0">
             <a-gltf-model rotation="0 0 0 " position="0.5 0.3 0.1" scale="0.06 0.06 0.06" src="#avatarModel"
-                animation="property: position; to: 0.5 0.5 0.5; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+                animation="property: position; to: 0.5 0.5 0.5; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+                animation-mixer>
             </a-gltf-model>
             <a-gltf-model rotation="0 0 0 " position="0 0.2 0.1" scale="0.06 0.06 0.06" src="#avatarModel"
-                animation="property: position; to: 0.9 0.9 0.9; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+                animation="property: position; to: 0.9 0.9 0.9; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+                animation-mixer>
             </a-gltf-model>
-            <a-gltf-model rotation="0 0 0 " position="0 0 0.5" scale="0.05 0.05 0.05" src="#avatarModel">
+            <a-gltf-model rotation="0 0 0 " position="0 0 0.5" scale="0.05 0.05 0.05" src="#avatarModel"
+                animation-mixer>
             </a-gltf-model>
         </a-entity>
         <a-entity mindar-image-target="targetIndex: 1">
